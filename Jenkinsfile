@@ -1,8 +1,3 @@
-node {
-    checkout scm (1)
-    /* .. snip .. */
-}
-
 pipeline {
     agent any
 

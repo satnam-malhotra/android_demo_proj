@@ -2,9 +2,15 @@ pipeline {
     agent any
 
     stages {
+        stage('Checkout') {
+                steps {
+                    echo 'Building..'
+                }
+            }
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh '''./gradlew build clean'''
+                echo "The build stage passed..."
             }
         }
         stage('Test') {
@@ -16,6 +22,13 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
+        }
+    }
+    post{
+        always{
+            echo "post-build will always run after build completed"
+            // Jenkins cleans the workspace
+            cleanWs()
         }
     }
 }

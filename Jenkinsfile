@@ -9,7 +9,7 @@ pipeline {
             }
         stage('Build') {
             steps {
-                sh 'gradle build --info'
+                sh './gradlew clean test --no-daemon'
                 echo "The build stage passed..."
             }
         }

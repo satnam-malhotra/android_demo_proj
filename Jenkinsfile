@@ -28,7 +28,7 @@ pipeline {
         always{
             echo "post-build will always run after build completed"
             // Jenkins cleans the workspace
-            cleanWs()
+            //cleanWs()
         }
     }
 }

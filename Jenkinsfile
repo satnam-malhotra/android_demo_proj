@@ -9,7 +9,7 @@ pipeline {
             }
         stage('Build') {
             steps {
-                buildInfo = rtGradle.run rootDir: "circle-ci-android-demo-master/", buildFile: 'build.gradle', tasks: 'clean artifactoryPublish'
+                sh './gradlew assemble'
                 echo "The build stage passed..."
             }
         }

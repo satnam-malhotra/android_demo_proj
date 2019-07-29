@@ -9,7 +9,7 @@ pipeline {
             }
         stage('Build') {
             steps {
-                sh './gradlew clean test --no-daemon'
+                buildInfo = rtGradle.run rootDir: "circle-ci-android-demo-master/", buildFile: 'build.gradle', tasks: 'clean artifactoryPublish'
                 echo "The build stage passed..."
             }
         }
